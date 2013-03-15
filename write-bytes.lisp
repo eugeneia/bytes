@@ -3,7 +3,7 @@
 
 (in-package :bytes)
 
-(defmacro write-bytes (o!integer length o!stream)
+(defmacro write-bytes (integer length stream)
   "Write LENGTH octets from INTEGER to STREAM using LDB and WRITE-BYTE.
 LENGTH is evaluated during macro-expansion. STREAM must be a binary
 stream. Ordering is little-endian."
