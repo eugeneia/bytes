@@ -4,9 +4,20 @@
 (in-package :bytes)
 
 (defmacro write-bytes (integer length stream)
-  "Write LENGTH octets from INTEGER to STREAM using LDB and WRITE-BYTE.
-LENGTH is evaluated during macro-expansion. STREAM must be a binary
-stream. Ordering is little-endian."
+  "*Arguments and Values:*
+
+   _integer_—an {(unsigned-byte} _n_{)} where _n_ is {(* 8} _length_{)}.
+
+   _length_—an {(integer 0 *)} denoting the number of octets to be
+   written.
+
+   _stream_—a _binary output stream_.
+
+   *Description:*
+
+   {write-bytes} writes _integer_ to _stream_, represented as _length_
+   octets in little-endian order. _Length_ is evaluated during
+   macro-expansion."
   (let ((g!integer (gensym "integer"))
 	(g!stream (gensym  "stream")))
     `(let ((,g!integer ,integer)
